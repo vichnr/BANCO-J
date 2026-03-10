@@ -8,10 +8,18 @@ Professor: Amaury Nogueira Neto
 ---
     Este projeto teva como objetivo pegar um código inicial de um sistema bancário em Java e evoluir o seu sistema.
 O usuário deve:
+
     1. ir até o Main e iniciar o código
+
+
     2. criar a sua conta e escolher entre as opções corrente e poupança
-    3. escolher se quer depositar, sacar, transferir, consultar saldo e/ou aplicar rendimento (aplicar rendimento funciona apenas para conta poupança)
-    4. para consultar contas anteriores o número da conta é seguida pela ordem de criação 
+
+
+    3. escolher se quer depositar, sacar, transferir, consultar saldo e/ou aplicar rendimento (aplicar rendimento funciona apenas para conta poupança)  
+    
+
+    4.para consultar contas anteriores o número da conta é seguida pela ordem de criação 
+        
         EX: a primeira conta criada foi de davi e a segunda conta foi de teresa; o número da conta de davi é 1 e a de teresa é 2.
 ---
 
