@@ -36,9 +36,11 @@ ele vai usar um tipo de Tributavel e não a classe específica, podendo comporta
 
 === EXECUÇÃO DO SISTEMA ATUAL ===
 o usuário deve:  
+        
         1. ir até o main para executar o código em: 
 public class Main {
 public static void main(String[] args){
+        
         2. criar a sua conta e escolher primeiro uma opção (corrente ou poupança);
         3. após isso, o usuário pode: depositar e sacar;
         4. para fazer transferências, deve haver mais de uma conta, e para saber quantas contas existem, o usuário pode selecionar a opção de gerenciar contas, além de poder consultar o saldo, após indicar qual conta deseja ver o saldo;
