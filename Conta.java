@@ -1,6 +1,6 @@
 // Classe base que representa uma conta genérica
 // Não colocamos "public" porque só pode haver uma classe pública por arquivo
-class Conta {
+abstract class Conta {
 
     // protected permite que as classes filhas acessem esses atributos
     protected String titular;   // Nome do dono da conta
@@ -44,7 +44,7 @@ class Conta {
 
 // Classe ContaCorrente HERDA de Conta
 // "extends" permite reutilizar atributos e métodos da classe mãe
-class ContaCorrente extends Conta {
+class ContaCorrente extends Conta implements Tributavel {
 
     // Taxa fixa mensal da conta corrente
     private double taxaManutencao = 20.0;
@@ -61,6 +61,10 @@ class ContaCorrente extends Conta {
     public void calcularRendimento() {
         saldo -= taxaManutencao; // Desconta taxa ao invés de render juros
         System.out.println("Taxa de manutenção descontada: R$ " + taxaManutencao);
+    }
+    @Override
+    public double calcularTributo(){
+        return saldo * 0.01;
     }
 }
 
