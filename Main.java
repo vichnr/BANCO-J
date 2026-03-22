@@ -5,9 +5,10 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         Banco banco = new Banco();
+        CalculadoraDeImposto calc = new CalculadoraDeImposto();
+
         int opcao = -1;
         while (opcao != 0) {
-
 
             System.out.println("===== BANCO JAVA =====" ) ;
             System.out.println("1 - criar conta") ;
@@ -15,16 +16,15 @@ public class Main {
             System.out.println("3 - depositar");
             System.out.println("4 - sacar" );
             System.out.println("5 - transferir" );
-
             System.out.println("6 - consultar saldo") ;
             System.out.println("7 - aplicar rendimento" );
+            System.out.println("8 - calcular tributo");
+            System.out.println("9 - autenticar gerente");
             System.out.println("0 - sair") ;
             System.out.print("escolha uma opção: ");
 
             opcao = scanner.nextInt();
             scanner.nextLine();
-
-
 
             if (opcao == 1) {
 
@@ -51,6 +51,7 @@ public class Main {
 
                 banco.listarContas();
             }
+
             else if (opcao == 3 || opcao == 4 || opcao == 6 || opcao == 7) {
 
                 System.out.print("número da conta: ");
@@ -86,7 +87,7 @@ public class Main {
 
             else if (opcao == 5){
 
-                System.out.print("cconta origem: ");
+                System.out.print("conta origem: ");
                 int origem= scanner.nextInt() - 1;
 
                 System.out.print("conta destino: ");
@@ -107,6 +108,39 @@ public class Main {
                     System.out.println("conta inválida.");
                 }
 
+            }
+
+            else if (opcao == 8){
+
+                System.out.print("número da conta: ");
+                int numero = scanner.nextInt() - 1;
+
+                Conta conta = banco.buscarConta(numero);
+
+                if (conta instanceof Tributavel){
+
+                    calc.registrar((Tributavel) conta);
+                    System.out.println("tributo: R$ " + ((Tributavel) conta).calcularTributo());
+
+                    System.out.println("total acumulado: R$ " + calc.getTotalImposto());
+
+                } else {
+                    System.out.println("essa conta não paga tributo.");
+                }
+            }
+
+            else if (opcao == 9){
+
+                System.out.print("digite a senha do gerente: ");
+                String senha = scanner.next();
+
+                Gerente gerente = new Gerente("admin", "1234");
+
+                if (gerente.autenticar(senha)){
+                    System.out.println("acesso autorizado.");
+                } else {
+                    System.out.println("senha incorreta.");
+                }
             }
 
             else if (opcao == 0) {
